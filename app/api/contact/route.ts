@@ -13,9 +13,11 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(email)) {
+    // Validate email format - using simple, safe validation
+    // Client-side zod validation provides comprehensive email format checking
+    // Server-side we do basic sanity checks to prevent ReDoS attacks
+    // This is a defense-in-depth approach: strict client validation + safe server validation
+    if (typeof email !== 'string' || !email.includes('@') || email.length > 254 || email.length < 3) {
       return NextResponse.json(
         { error: "Formato de correo electrónico inválido" },
         { status: 400 }

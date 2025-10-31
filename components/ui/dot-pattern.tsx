@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useMemo } from "react"
 import { motion } from "motion/react"
 import { cn } from "@/lib/utils"
 
@@ -25,37 +25,43 @@ export default function DotPattern({
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    const element = containerRef.current
+    if (!element) return
+
     const updateDimensions = () => {
-      if (containerRef.current) {
+      if (element) {
         setDimensions({
-          width: containerRef.current.offsetWidth,
-          height: containerRef.current.offsetHeight,
+          width: element.offsetWidth,
+          height: element.offsetHeight,
         })
       }
     }
 
     updateDimensions()
     const resizeObserver = new ResizeObserver(updateDimensions)
-    if (containerRef.current) {
-      resizeObserver.observe(containerRef.current)
-    }
+    resizeObserver.observe(element)
 
-    return () => resizeObserver.disconnect()
+    return () => {
+      resizeObserver.disconnect()
+    }
   }, [])
 
-  const cols = Math.ceil(dimensions.width / spacing)
-  const rows = Math.ceil(dimensions.height / spacing)
-  const totalDots = Math.min(cols * rows, maxDots)
+  const dots = useMemo(() => {
+    const cols = Math.ceil(dimensions.width / spacing)
+    const rows = Math.ceil(dimensions.height / spacing)
+    const totalDots = Math.min(cols * rows, maxDots)
 
-  const dots = []
-  for (let i = 0; i < totalDots; i++) {
-    const col = i % cols
-    const row = Math.floor(i / cols)
-    const x = col * spacing
-    const y = row * spacing
+    const result = []
+    for (let i = 0; i < totalDots; i++) {
+      const col = i % cols
+      const row = Math.floor(i / cols)
+      const x = col * spacing
+      const y = row * spacing
 
-    dots.push({ x, y, key: i })
-  }
+      result.push({ x, y, key: i })
+    }
+    return result
+  }, [dimensions.width, dimensions.height, spacing, maxDots])
 
   return (
     <div

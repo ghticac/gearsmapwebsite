@@ -54,8 +54,12 @@ export default function ContactForm() {
         })
       }
     } catch (error) {
-      toast.error("Error de conexión", {
-        description: "No pudimos enviar tu mensaje. Intenta de nuevo.",
+      // Network or other errors
+      const isNetworkError = error instanceof TypeError && error.message.includes('fetch')
+      toast.error(isNetworkError ? "Error de conexión" : "Error inesperado", {
+        description: isNetworkError 
+          ? "No pudimos conectar con el servidor. Verifica tu conexión."
+          : "Ocurrió un error al procesar tu solicitud. Intenta de nuevo.",
       })
     } finally {
       setIsSubmitting(false)
