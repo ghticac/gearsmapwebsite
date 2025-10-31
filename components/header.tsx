@@ -9,6 +9,7 @@ import { Menu, X } from "lucide-react"
 const menuItems = [
   { title: "Inicio", path: "#inicio" },
   { title: "Sobre Nosotros", path: "#nosotros" },
+  { title: "Características", path: "#caracteristicas" },
   { title: "Portafolio", path: "#portafolio" },
   { title: "Contacto", path: "#contacto" },
 ]
