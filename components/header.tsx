@@ -5,9 +5,11 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import type { MenuItem } from "@/types/menu"
 
-const menuItems = [
+const menuItems: MenuItem[] = [
   { title: "Inicio", path: "#inicio" },
+  { title: "Características", path: "#caracteristicas" },
   { title: "Sobre Nosotros", path: "#nosotros" },
   { title: "Portafolio", path: "#portafolio" },
   { title: "Contacto", path: "#contacto" },
