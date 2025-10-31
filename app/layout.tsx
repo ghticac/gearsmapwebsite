@@ -4,6 +4,7 @@ import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import ScrollToTop from "@/components/scroll-to-top"
+import { Toaster } from "sonner"
 
 export const metadata: Metadata = {
   title: "GearsMap - Diseñamos plataformas personalizadas que optimizan procesos",
@@ -61,6 +62,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <ScrollToTop />
+        <Toaster position="top-right" richColors />
       </body>
     </html>
   )

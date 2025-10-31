@@ -3,13 +3,18 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Zap, Brain, Map, BarChart, Globe2, Cog, Shield } from "lucide-react"
 import Globe from "@/components/ui/globe"
+import AuroraText from "@/components/aurora-text"
+import HeroBackground from "@/components/hero-background"
+import Features from "@/components/features"
+import ContactForm from "@/components/contact-form"
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section id="inicio" className="px-6 lg:px-12 pt-32 pb-20 lg:pt-40 lg:pb-32">
-        <div className="max-w-7xl mx-auto">
+      <section id="inicio" className="px-6 lg:px-12 pt-32 pb-20 lg:pt-40 lg:pb-32 relative overflow-hidden">
+        <HeroBackground />
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left Content */}
             <div className="space-y-8">
@@ -20,7 +25,7 @@ export default function HomePage() {
 
               <div className="space-y-6">
                 <h1 className="text-4xl lg:text-6xl font-bold font-sans leading-tight">
-                  ¿Qué es <span className="text-accent">GearsMap</span>
+                  ¿Qué es <AuroraText>GearsMap</AuroraText>
                   <span className="text-foreground">?</span>
                 </h1>
 
@@ -206,7 +211,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="portafolio" className="px-6 lg:px-12 py-20 lg:py-32 bg-card/30">
+      {/* Features Section */}
+      <Features />
+
+      <section id="portafolio" className="px-6 lg:px-12 py-20 lg:py-32">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
@@ -322,74 +330,7 @@ export default function HomePage() {
           </div>
 
           {/* Contact Form */}
-          <div className="max-w-2xl mx-auto">
-            <div className="bg-card border border-border rounded-2xl p-8">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold font-sans text-foreground mb-2">¿Necesitas ayuda? Contáctanos</h3>
-                <p className="text-muted-foreground font-mono">
-                  Nuestro equipo se pondrá en contacto contigo lo antes posible.
-                </p>
-              </div>
-
-              <form className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Tu Nombre *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    placeholder="Ingresa tu nombre"
-                    className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Tu Correo Electrónico *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    placeholder="Ingresa tu correo electrónico"
-                    className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                    Tu Teléfono
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    placeholder="Ingresa tu teléfono"
-                    className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    Tu Mensaje *
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={5}
-                    placeholder="Ingresa tu mensaje"
-                    className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent resize-none"
-                  ></textarea>
-                </div>
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-medium"
-                >
-                  Enviar
-                </Button>
-              </form>
-            </div>
-          </div>
+          <ContactForm />
         </div>
       </section>
     </div>
