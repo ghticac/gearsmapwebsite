@@ -1,23 +1,10 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist } from "next/font/google"
-import { Manrope } from "next/font/google"
 import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import ScrollToTop from "@/components/scroll-to-top"
-
-const geist = Geist({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-geist",
-})
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-manrope",
-})
+import { Toaster } from "sonner"
 
 export const metadata: Metadata = {
   title: "GearsMap - Diseñamos plataformas personalizadas que optimizan procesos",
@@ -69,12 +56,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={`${geist.variable} ${manrope.variable} antialiased dark`}>
-      <body className="bg-background text-foreground">
+    <html lang="es" className="antialiased dark">
+      <body className="bg-background text-foreground font-sans">
         <Header />
         <main>{children}</main>
         <Footer />
         <ScrollToTop />
+        <Toaster position="top-right" richColors />
       </body>
     </html>
   )
