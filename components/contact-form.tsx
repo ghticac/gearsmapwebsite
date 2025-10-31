@@ -5,8 +5,9 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { Button } from "@/components/ui/button"
-import { toast } from "sonner"
 import { Loader2 } from "lucide-react"
+import { toastConfig } from "@/lib/toast-config"
+import { postData } from "@/lib/api-helpers"
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
@@ -33,34 +34,20 @@ export default function ContactForm() {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-
-      const result = await response.json()
-
-      if (response.ok) {
-        toast.success("¡Mensaje enviado!", {
-          description: "Nos pondremos en contacto contigo pronto.",
-        })
-        reset()
-      } else {
-        toast.error("Error al enviar", {
-          description: result.error || "Por favor, intenta de nuevo más tarde.",
-        })
-      }
+      await postData("/api/contact", data)
+      toastConfig.success("¡Mensaje enviado!", "Nos pondremos en contacto contigo pronto.")
+      reset()
     } catch (error) {
       // Network or other errors
-      const isNetworkError = error instanceof TypeError && error.message.includes('fetch')
-      toast.error(isNetworkError ? "Error de conexión" : "Error inesperado", {
-        description: isNetworkError 
+      const isNetworkError = error instanceof TypeError && error.message.includes("fetch")
+      toastConfig.error(
+        isNetworkError ? "Error de conexión" : "Error al enviar",
+        isNetworkError
           ? "No pudimos conectar con el servidor. Verifica tu conexión."
-          : "Ocurrió un error al procesar tu solicitud. Intenta de nuevo.",
-      })
+          : error instanceof Error
+            ? error.message
+            : "Ocurrió un error al procesar tu solicitud. Intenta de nuevo."
+      )
     } finally {
       setIsSubmitting(false)
     }

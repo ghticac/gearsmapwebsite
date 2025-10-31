@@ -7,6 +7,7 @@ import AuroraText from "@/components/ui/aurora-text"
 import HeroBackground from "@/components/ui/hero-background"
 import Features from "@/components/features"
 import ContactForm from "@/components/contact-form"
+import FadeIn from "@/components/ui/fade-in"
 
 export default function HomePage() {
   return (
@@ -127,8 +128,9 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left Content */}
-            <div className="space-y-8">
-              <h2 className="text-3xl lg:text-5xl font-bold font-sans text-foreground">Sobre GearsMap</h2>
+            <FadeIn direction="left">
+              <div className="space-y-8">
+                <h2 className="text-3xl lg:text-5xl font-bold font-sans text-foreground">Sobre GearsMap</h2>
 
               <div className="space-y-6">
                 <p className="text-muted-foreground font-mono leading-relaxed">
@@ -158,9 +160,11 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+            </FadeIn>
 
             {/* Right Image */}
-            <div className="relative">
+            <FadeIn direction="right" delay={0.2}>
+              <div className="relative">
               <div className="relative rounded-2xl overflow-hidden">
                 <img
                   src="/images/agm2.jpg"
@@ -170,6 +174,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
               </div>
             </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -178,15 +183,18 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left Image */}
-            <div className="relative order-2 lg:order-1">
+            <FadeIn direction="left" delay={0.2}>
+              <div className="relative order-2 lg:order-1">
               <div className="relative rounded-2xl overflow-hidden">
                 <img src="/images/agm1.jpg" alt="GearsMap team collaboration" className="w-full h-auto object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
               </div>
             </div>
+            </FadeIn>
 
             {/* Right Content */}
-            <div className="space-y-8 order-1 lg:order-2">
+            <FadeIn direction="right">
+              <div className="space-y-8 order-1 lg:order-2">
               <h2 className="text-3xl lg:text-5xl font-bold font-sans text-foreground">Misión y visión</h2>
 
               <div className="space-y-6">
@@ -210,6 +218,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -217,22 +226,25 @@ export default function HomePage() {
       <section id="portafolio" className="px-6 lg:px-12 py-20 lg:py-32 bg-card/30">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground font-mono mb-4">
-              <span>Inicio</span>
-              <ArrowRight className="w-4 h-4" />
-              <span className="text-accent">Portafolio y Servicios</span>
+          <FadeIn>
+            <div className="text-center mb-16">
+              <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground font-mono mb-4">
+                <span>Inicio</span>
+                <ArrowRight className="w-4 h-4" />
+                <span className="text-accent">Portafolio y Servicios</span>
+              </div>
+              <h2 className="text-3xl lg:text-5xl font-bold font-sans text-foreground mb-4">Portafolio y Servicios</h2>
+              <p className="text-muted-foreground font-mono max-w-2xl mx-auto">
+                Conozca más sobre nuestros servicios y soluciones de visualización y análisis de datos.
+              </p>
             </div>
-            <h2 className="text-3xl lg:text-5xl font-bold font-sans text-foreground mb-4">Portafolio y Servicios</h2>
-            <p className="text-muted-foreground font-mono max-w-2xl mx-auto">
-              Conozca más sobre nuestros servicios y soluciones de visualización y análisis de datos.
-            </p>
-          </div>
+          </FadeIn>
 
           {/* Services Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* AI & Machine Learning */}
-            <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-colors">
+            <FadeIn delay={0.1}>
+              <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1">
               <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
                 <Brain className="w-6 h-6 text-accent" />
               </div>
@@ -245,9 +257,11 @@ export default function HomePage() {
                 análisis avanzado le permitirán identificar patrones, tendencias y oportunidades ocultas en sus datos.
               </p>
             </div>
+            </FadeIn>
 
             {/* Geovisores */}
-            <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-colors">
+            <FadeIn delay={0.2}>
+              <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1">
               <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
                 <Map className="w-6 h-6 text-accent" />
               </div>
@@ -258,9 +272,11 @@ export default function HomePage() {
                 intuitiva, facilitando la toma de decisiones basadas en información geográfica precisa.
               </p>
             </div>
+            </FadeIn>
 
             {/* Visualización 2D y 3D */}
-            <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-colors">
+            <FadeIn delay={0.3}>
+              <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1">
               <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
                 <Globe2 className="w-6 h-6 text-accent" />
               </div>
@@ -271,9 +287,11 @@ export default function HomePage() {
                 tiempo real, lo que permite explorar modelos en profundidad.
               </p>
             </div>
+            </FadeIn>
 
             {/* Dashboards y estadísticas */}
-            <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-colors">
+            <FadeIn delay={0.4}>
+              <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1">
               <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
                 <BarChart className="w-6 h-6 text-accent" />
               </div>
@@ -284,9 +302,11 @@ export default function HomePage() {
                 sencilla, con la opción de profundizar en detalles específicos.
               </p>
             </div>
+            </FadeIn>
 
             {/* Automatización de Procesos */}
-            <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-colors">
+            <FadeIn delay={0.5}>
+              <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1">
               <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
                 <Cog className="w-6 h-6 text-accent" />
               </div>
@@ -297,9 +317,11 @@ export default function HomePage() {
                 trabajo, optimizan recursos y minimizan errores.
               </p>
             </div>
+            </FadeIn>
 
             {/* Monitoreo y Mantenimiento */}
-            <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-colors">
+            <FadeIn delay={0.6}>
+              <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1">
               <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
                 <Shield className="w-6 h-6 text-accent" />
               </div>
@@ -310,6 +332,7 @@ export default function HomePage() {
                 garantizamos la detección temprana de posibles fallas.
               </p>
             </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -317,31 +340,35 @@ export default function HomePage() {
       <section id="contacto" className="px-6 lg:px-12 py-20 lg:py-32">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground font-mono mb-4">
-              <span>Inicio</span>
-              <ArrowRight className="w-4 h-4" />
-              <span className="text-accent">Contactenos</span>
+          <FadeIn>
+            <div className="text-center mb-16">
+              <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground font-mono mb-4">
+                <span>Inicio</span>
+                <ArrowRight className="w-4 h-4" />
+                <span className="text-accent">Contactenos</span>
+              </div>
+              <h2 className="text-3xl lg:text-5xl font-bold font-sans text-foreground mb-4">Contactenos</h2>
+              <p className="text-muted-foreground font-mono max-w-2xl mx-auto">
+                Complete el formulario para ponerte en contacto con nosotros.
+              </p>
             </div>
-            <h2 className="text-3xl lg:text-5xl font-bold font-sans text-foreground mb-4">Contactenos</h2>
-            <p className="text-muted-foreground font-mono max-w-2xl mx-auto">
-              Complete el formulario para ponerte en contacto con nosotros.
-            </p>
-          </div>
+          </FadeIn>
 
           {/* Contact Form */}
-          <div className="max-w-2xl mx-auto">
-            <div className="bg-card border border-border rounded-2xl p-8">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold font-sans text-foreground mb-2">¿Necesitas ayuda? Contáctanos</h3>
-                <p className="text-muted-foreground font-mono">
-                  Nuestro equipo se pondrá en contacto contigo lo antes posible.
-                </p>
-              </div>
+          <FadeIn delay={0.2}>
+            <div className="max-w-2xl mx-auto">
+              <div className="bg-card border border-border rounded-2xl p-8">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-bold font-sans text-foreground mb-2">¿Necesitas ayuda? Contáctanos</h3>
+                  <p className="text-muted-foreground font-mono">
+                    Nuestro equipo se pondrá en contacto contigo lo antes posible.
+                  </p>
+                </div>
 
-              <ContactForm />
+                <ContactForm />
+              </div>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
     </div>
