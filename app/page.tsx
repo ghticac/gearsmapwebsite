@@ -212,35 +212,41 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left Image */}
-            <div className="relative order-2 lg:order-1">
+            <BlurFade delay={0.2} className="relative order-2 lg:order-1">
               <div className="relative rounded-2xl overflow-hidden">
                 <img src="/images/agm1.jpg" alt="GearsMap team collaboration" className="w-full h-auto object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
               </div>
-            </div>
+            </BlurFade>
 
             {/* Right Content */}
             <div className="space-y-8 order-1 lg:order-2">
-              <h2 className="text-3xl lg:text-5xl font-bold font-sans text-foreground">Misión y visión</h2>
+              <BlurFade delay={0.1}>
+                <h2 className="text-3xl lg:text-5xl font-bold font-sans text-foreground">Misión y visión</h2>
+              </BlurFade>
 
               <div className="space-y-6">
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold font-sans text-foreground">Misión</h3>
-                  <p className="text-muted-foreground font-mono leading-relaxed">
-                    Nuestro principal objetivo es asistir a entidades gubernamentales, empresas y organizaciones en su
-                    transformación digital hacia un futuro más próspero. Buscamos optimizar cada recurso y proceso
-                    mediante el uso innovador de la información, manteniendo nuestros valores de excelencia, eficiencia
-                    e innovación.
-                  </p>
+                  <BlurFade delay={0.2}>
+                    <h3 className="text-xl font-bold font-sans text-foreground">Misión</h3>
+                    <p className="text-muted-foreground font-mono leading-relaxed">
+                      Nuestro principal objetivo es asistir a entidades gubernamentales, empresas y organizaciones en su
+                      transformación digital hacia un futuro más próspero. Buscamos optimizar cada recurso y proceso
+                      mediante el uso innovador de la información, manteniendo nuestros valores de excelencia, eficiencia
+                      e innovación.
+                    </p>
+                  </BlurFade>
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold font-sans text-foreground">Visión</h3>
-                  <p className="text-muted-foreground font-mono leading-relaxed">
-                    Aspiramos a llevar nuestras innovaciones a todos los rincones del mundo, colaborando con entidades e
-                    individuos para generar ideas y desarrollos revolucionarios. Buscamos contribuir a la transformación
-                    del desarrollo de la humanidad, optimizando y salvaguardando todo tipo de recursos.
-                  </p>
+                  <BlurFade delay={0.3}>
+                    <h3 className="text-xl font-bold font-sans text-foreground">Visión</h3>
+                    <p className="text-muted-foreground font-mono leading-relaxed">
+                      Aspiramos a llevar nuestras innovaciones a todos los rincones del mundo, colaborando con entidades e
+                      individuos para generar ideas y desarrollos revolucionarios. Buscamos contribuir a la transformación
+                      del desarrollo de la humanidad, optimizando y salvaguardando todo tipo de recursos.
+                    </p>
+                  </BlurFade>
                 </div>
               </div>
             </div>
@@ -255,98 +261,116 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground font-mono mb-4">
-              <span>Inicio</span>
-              <ArrowRight className="w-4 h-4" />
-              <span className="text-accent">Portafolio y Servicios</span>
-            </div>
-            <h2 className="text-3xl lg:text-5xl font-bold font-sans text-foreground mb-4">Portafolio y Servicios</h2>
-            <p className="text-muted-foreground font-mono max-w-2xl mx-auto">
-              Conozca más sobre nuestros servicios y soluciones de visualización y análisis de datos.
-            </p>
+            <BlurFade delay={0.1}>
+              <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground font-mono mb-4">
+                <span>Inicio</span>
+                <ArrowRight className="w-4 h-4" />
+                <span className="text-accent">Portafolio y Servicios</span>
+              </div>
+            </BlurFade>
+            <BlurFade delay={0.2}>
+              <h2 className="text-3xl lg:text-5xl font-bold font-sans text-foreground mb-4">Portafolio y Servicios</h2>
+            </BlurFade>
+            <BlurFade delay={0.3}>
+              <p className="text-muted-foreground font-mono max-w-2xl mx-auto">
+                Conozca más sobre nuestros servicios y soluciones de visualización y análisis de datos.
+              </p>
+            </BlurFade>
           </div>
 
           {/* Services Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* AI & Machine Learning */}
-            <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-colors">
-              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
-                <Brain className="w-6 h-6 text-accent" />
+            <BlurFade delay={0.1}>
+              <div className="group bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1">
+                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors group-hover:scale-110 duration-300">
+                  <Brain className="w-6 h-6 text-accent" />
+                </div>
+                <h3 className="text-xl font-bold font-sans text-foreground mb-3">
+                  Inteligencia artificial y Machine Learning
+                </h3>
+                <p className="text-muted-foreground font-mono text-sm leading-relaxed">
+                  Implementamos soluciones de inteligencia artificial y machine learning para ayudarle a extraer
+                  información valiosa de sus datos y mejorar la toma de decisiones. Nuestros modelos predictivos y de
+                  análisis avanzado le permitirán identificar patrones, tendencias y oportunidades ocultas en sus datos.
+                </p>
               </div>
-              <h3 className="text-xl font-bold font-sans text-foreground mb-3">
-                Inteligencia artificial y Machine Learning
-              </h3>
-              <p className="text-muted-foreground font-mono text-sm leading-relaxed">
-                Implementamos soluciones de inteligencia artificial y machine learning para ayudarle a extraer
-                información valiosa de sus datos y mejorar la toma de decisiones. Nuestros modelos predictivos y de
-                análisis avanzado le permitirán identificar patrones, tendencias y oportunidades ocultas en sus datos.
-              </p>
-            </div>
+            </BlurFade>
 
             {/* Geovisores */}
-            <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-colors">
-              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
-                <Map className="w-6 h-6 text-accent" />
+            <BlurFade delay={0.2}>
+              <div className="group bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1">
+                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors group-hover:scale-110 duration-300">
+                  <Map className="w-6 h-6 text-accent" />
+                </div>
+                <h3 className="text-xl font-bold font-sans text-foreground mb-3">Geovisores</h3>
+                <p className="text-muted-foreground font-mono text-sm leading-relaxed">
+                  Desarrollamos geovisores personalizados para visualizar y analizar información geoespacial de manera
+                  interactiva y dinámica. Estas herramientas le permitirán explorar mapas, datos y estadísticas de manera
+                  intuitiva, facilitando la toma de decisiones basadas en información geográfica precisa.
+                </p>
               </div>
-              <h3 className="text-xl font-bold font-sans text-foreground mb-3">Geovisores</h3>
-              <p className="text-muted-foreground font-mono text-sm leading-relaxed">
-                Desarrollamos geovisores personalizados para visualizar y analizar información geoespacial de manera
-                interactiva y dinámica. Estas herramientas le permitirán explorar mapas, datos y estadísticas de manera
-                intuitiva, facilitando la toma de decisiones basadas en información geográfica precisa.
-              </p>
-            </div>
+            </BlurFade>
 
             {/* Visualización 2D y 3D */}
-            <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-colors">
-              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
-                <Globe2 className="w-6 h-6 text-accent" />
+            <BlurFade delay={0.3}>
+              <div className="group bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1">
+                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors group-hover:scale-110 duration-300">
+                  <Globe2 className="w-6 h-6 text-accent" />
+                </div>
+                <h3 className="text-xl font-bold font-sans text-foreground mb-3">Visualización 2D y 3D</h3>
+                <p className="text-muted-foreground font-mono text-sm leading-relaxed">
+                  Potencie el análisis y comprensión de sus datos mediante herramientas avanzadas de visualización 2D y
+                  3D, diseñadas a la medida de sus necesidades específicas. Estas soluciones ofrecen interactividad en
+                  tiempo real, lo que permite explorar modelos en profundidad.
+                </p>
               </div>
-              <h3 className="text-xl font-bold font-sans text-foreground mb-3">Visualización 2D y 3D</h3>
-              <p className="text-muted-foreground font-mono text-sm leading-relaxed">
-                Potencie el análisis y comprensión de sus datos mediante herramientas avanzadas de visualización 2D y
-                3D, diseñadas a la medida de sus necesidades específicas. Estas soluciones ofrecen interactividad en
-                tiempo real, lo que permite explorar modelos en profundidad.
-              </p>
-            </div>
+            </BlurFade>
 
             {/* Dashboards y estadísticas */}
-            <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-colors">
-              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
-                <BarChart className="w-6 h-6 text-accent" />
+            <BlurFade delay={0.4}>
+              <div className="group bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1">
+                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors group-hover:scale-110 duration-300">
+                  <BarChart className="w-6 h-6 text-accent" />
+                </div>
+                <h3 className="text-xl font-bold font-sans text-foreground mb-3">Dashboards y estadísticas</h3>
+                <p className="text-muted-foreground font-mono text-sm leading-relaxed">
+                  Esta herramienta le permitirá presentar y analizar sus datos de manera clara y visual, facilitando una
+                  toma de decisiones más informada. Podrá obtener una visión general de la información de manera rápida y
+                  sencilla, con la opción de profundizar en detalles específicos.
+                </p>
               </div>
-              <h3 className="text-xl font-bold font-sans text-foreground mb-3">Dashboards y estadísticas</h3>
-              <p className="text-muted-foreground font-mono text-sm leading-relaxed">
-                Esta herramienta le permitirá presentar y analizar sus datos de manera clara y visual, facilitando una
-                toma de decisiones más informada. Podrá obtener una visión general de la información de manera rápida y
-                sencilla, con la opción de profundizar en detalles específicos.
-              </p>
-            </div>
+            </BlurFade>
 
             {/* Automatización de Procesos */}
-            <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-colors">
-              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
-                <Cog className="w-6 h-6 text-accent" />
+            <BlurFade delay={0.5}>
+              <div className="group bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1">
+                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors group-hover:scale-110 duration-300">
+                  <Cog className="w-6 h-6 text-accent" />
+                </div>
+                <h3 className="text-xl font-bold font-sans text-foreground mb-3">Automatización de Procesos</h3>
+                <p className="text-muted-foreground font-mono text-sm leading-relaxed">
+                  A través de la automatización de procesos, le ayudamos a mejorar la eficiencia operativa y reducir el
+                  tiempo dedicado a tareas repetitivas. Implementamos soluciones personalizadas que agilizan sus flujos de
+                  trabajo, optimizan recursos y minimizan errores.
+                </p>
               </div>
-              <h3 className="text-xl font-bold font-sans text-foreground mb-3">Automatización de Procesos</h3>
-              <p className="text-muted-foreground font-mono text-sm leading-relaxed">
-                A través de la automatización de procesos, le ayudamos a mejorar la eficiencia operativa y reducir el
-                tiempo dedicado a tareas repetitivas. Implementamos soluciones personalizadas que agilizan sus flujos de
-                trabajo, optimizan recursos y minimizan errores.
-              </p>
-            </div>
+            </BlurFade>
 
             {/* Monitoreo y Mantenimiento */}
-            <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-colors">
-              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
-                <Shield className="w-6 h-6 text-accent" />
+            <BlurFade delay={0.6}>
+              <div className="group bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1">
+                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors group-hover:scale-110 duration-300">
+                  <Shield className="w-6 h-6 text-accent" />
+                </div>
+                <h3 className="text-xl font-bold font-sans text-foreground mb-3">Monitoreo y Mantenimiento</h3>
+                <p className="text-muted-foreground font-mono text-sm leading-relaxed">
+                  Proveemos servicios de monitoreo continuo y mantenimiento de productos, asegurando su funcionamiento
+                  óptimo a lo largo del tiempo. Con tecnologías avanzadas de seguimiento y alertas en tiempo real,
+                  garantizamos la detección temprana de posibles fallas.
+                </p>
               </div>
-              <h3 className="text-xl font-bold font-sans text-foreground mb-3">Monitoreo y Mantenimiento</h3>
-              <p className="text-muted-foreground font-mono text-sm leading-relaxed">
-                Proveemos servicios de monitoreo continuo y mantenimiento de productos, asegurando su funcionamiento
-                óptimo a lo largo del tiempo. Con tecnologías avanzadas de seguimiento y alertas en tiempo real,
-                garantizamos la detección temprana de posibles fallas.
-              </p>
-            </div>
+            </BlurFade>
           </div>
         </div>
       </section>
