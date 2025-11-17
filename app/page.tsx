@@ -5,64 +5,94 @@ import { ArrowRight, Zap, Brain, Map, BarChart, Globe2, Cog, Shield } from "luci
 import Globe from "@/components/ui/globe"
 import Features from "@/components/features"
 import ContactForm from "@/components/contact-form"
+import BlurFade from "@/components/magicui/blur-fade"
+import AnimatedGradientText from "@/components/magicui/animated-gradient-text"
+import NumberTicker from "@/components/magicui/number-ticker"
+import { ShimmerButton } from "@/components/magicui/shimmer-button"
+import Ripple from "@/components/magicui/ripple"
+import ScrollProgress from "@/components/magicui/scroll-progress"
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
+      {/* Scroll Progress Indicator */}
+      <ScrollProgress />
+      
       {/* Hero Section */}
-      <section id="inicio" className="px-6 lg:px-12 pt-32 pb-20 lg:pt-40 lg:pb-32">
+      <section id="inicio" className="px-6 lg:px-12 pt-32 pb-20 lg:pt-40 lg:pb-32 relative">
+        {/* Ripple Background Effect */}
+        <Ripple />
+        
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left Content */}
             <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full border border-accent/20">
-                <Zap className="w-4 h-4 text-accent" />
-                <span className="text-sm font-medium text-accent font-mono">Plataformas de datos a tu medida</span>
-              </div>
+              <BlurFade delay={0.1}>
+                <AnimatedGradientText>
+                  <Zap className="w-4 h-4 text-accent" />
+                  <span className="text-sm font-medium text-accent font-mono">Plataformas de datos a tu medida</span>
+                </AnimatedGradientText>
+              </BlurFade>
 
               <div className="space-y-6">
-                <h1 className="text-4xl lg:text-6xl font-bold font-sans leading-tight">
-                  ¿Qué es <span className="text-accent">GearsMap</span>
-                  <span className="text-foreground">?</span>
-                </h1>
+                <BlurFade delay={0.2}>
+                  <h1 className="text-4xl lg:text-6xl font-bold font-sans leading-tight">
+                    ¿Qué es <span className="text-accent">GearsMap</span>
+                    <span className="text-foreground">?</span>
+                  </h1>
+                </BlurFade>
 
-                <div className="space-y-4 text-lg font-mono leading-relaxed text-muted-foreground">
-                  <p>Diseñamos plataformas personalizadas que optimizan procesos y visualizan datos complejos.</p>
-                  <p>
-                    Innovación, soporte constante y herramientas de alta calidad para transformar tus datos en
-                    decisiones estratégicas.
-                  </p>
+                <BlurFade delay={0.3}>
+                  <div className="space-y-4 text-lg font-mono leading-relaxed text-muted-foreground">
+                    <p>Diseñamos plataformas personalizadas que optimizan procesos y visualizan datos complejos.</p>
+                    <p>
+                      Innovación, soporte constante y herramientas de alta calidad para transformar tus datos en
+                      decisiones estratégicas.
+                    </p>
+                  </div>
+                </BlurFade>
+              </div>
+
+              <BlurFade delay={0.4}>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <ShimmerButton
+                    shimmerColor="#33bfff"
+                    background="linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--accent)) 100%)"
+                    className="text-base"
+                  >
+                    Solicitar demo
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </ShimmerButton>
+                  <Button variant="outline" size="lg" className="border-border hover:bg-accent/5 bg-transparent">
+                    Saber más
+                  </Button>
                 </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-medium">
-                  Solicitar demo
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-                <Button variant="outline" size="lg" className="border-border hover:bg-accent/5 bg-transparent">
-                  Saber más
-                </Button>
-              </div>
+              </BlurFade>
 
               {/* Stats */}
-              <div className="flex gap-8 pt-8 border-t border-border">
-                <div>
-                  <div className="text-2xl font-bold text-accent font-sans">500+</div>
-                  <div className="text-sm text-muted-foreground font-mono">Proyectos completados</div>
+              <BlurFade delay={0.5}>
+                <div className="flex gap-8 pt-8 border-t border-border">
+                  <div>
+                    <div className="text-2xl font-bold text-accent font-sans">
+                      <NumberTicker value={500} />+
+                    </div>
+                    <div className="text-sm text-muted-foreground font-mono">Proyectos completados</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-accent font-sans">
+                      <NumberTicker value={98} />%
+                    </div>
+                    <div className="text-sm text-muted-foreground font-mono">Satisfacción del cliente</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-accent font-sans">24/7</div>
+                    <div className="text-sm text-muted-foreground font-mono">Soporte técnico</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-2xl font-bold text-accent font-sans">98%</div>
-                  <div className="text-sm text-muted-foreground font-mono">Satisfacción del cliente</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-accent font-sans">24/7</div>
-                  <div className="text-sm text-muted-foreground font-mono">Soporte técnico</div>
-                </div>
-              </div>
+              </BlurFade>
             </div>
 
-            <div className="relative">
+            <BlurFade delay={0.3} className="relative">
               <div className="relative w-full h-96 lg:h-[500px] flex items-center justify-center">
                 {/* Background glow effect */}
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -112,7 +142,7 @@ export default function HomePage() {
                   <div className="text-lg font-bold text-accent font-sans">2.4M</div>
                 </div>
               </div>
-            </div>
+            </BlurFade>
           </div>
         </div>
       </section>
@@ -122,48 +152,58 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left Content */}
             <div className="space-y-8">
-              <h2 className="text-3xl lg:text-5xl font-bold font-sans text-foreground">Sobre GearsMap</h2>
+              <BlurFade delay={0.1}>
+                <h2 className="text-3xl lg:text-5xl font-bold font-sans text-foreground">Sobre GearsMap</h2>
+              </BlurFade>
 
               <div className="space-y-6">
-                <p className="text-muted-foreground font-mono leading-relaxed">
-                  Innovamos en nuevas formas de utilizar y visualizar datos para agregar valor a procesos y decisiones.
-                </p>
+                <BlurFade delay={0.2}>
+                  <p className="text-muted-foreground font-mono leading-relaxed">
+                    Innovamos en nuevas formas de utilizar y visualizar datos para agregar valor a procesos y decisiones.
+                  </p>
+                </BlurFade>
 
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold font-sans text-foreground">Fundación</h3>
-                  <p className="text-muted-foreground font-mono leading-relaxed">
-                    Fundada en 2024, GearsMap reúne a profesionales experimentados del sector tecnológico, impulsados
-                    por la pasión de contribuir a la Cuarta Revolución Industrial. Innovamos en nuevas formas de
-                    utilizar y visualizar datos, añadiendo valor a los procesos empresariales. Nuestros desarrolladores
-                    tienen una amplia experiencia en numerosos proyectos tecnológicos.
-                  </p>
+                  <BlurFade delay={0.3}>
+                    <h3 className="text-xl font-bold font-sans text-foreground">Fundación</h3>
+                    <p className="text-muted-foreground font-mono leading-relaxed">
+                      Fundada en 2024, GearsMap reúne a profesionales experimentados del sector tecnológico, impulsados
+                      por la pasión de contribuir a la Cuarta Revolución Industrial. Innovamos en nuevas formas de
+                      utilizar y visualizar datos, añadiendo valor a los procesos empresariales. Nuestros desarrolladores
+                      tienen una amplia experiencia en numerosos proyectos tecnológicos.
+                    </p>
+                  </BlurFade>
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold font-sans text-foreground">Productos y servicios</h3>
-                  <p className="text-muted-foreground font-mono leading-relaxed">
-                    Nos especializamos en el desarrollo de soluciones de software basadas en Sistemas de Información
-                    Geográfica (SIG) y en la gestión y análisis de datos geoespaciales. Nuestras ofertas incluyen
-                    aplicaciones para la gestión y visualización de información, optimización y automatización de
-                    proyectos. Acompañamos a las empresas en el diseño y desarrollo de herramientas tecnológicas que
-                    añaden valor a sus actividades, garantizando soporte técnico durante el uso de nuestros desarrollos
-                    y productos.
-                  </p>
+                  <BlurFade delay={0.4}>
+                    <h3 className="text-xl font-bold font-sans text-foreground">Productos y servicios</h3>
+                    <p className="text-muted-foreground font-mono leading-relaxed">
+                      Nos especializamos en el desarrollo de soluciones de software basadas en Sistemas de Información
+                      Geográfica (SIG) y en la gestión y análisis de datos geoespaciales. Nuestras ofertas incluyen
+                      aplicaciones para la gestión y visualización de información, optimización y automatización de
+                      proyectos. Acompañamos a las empresas en el diseño y desarrollo de herramientas tecnológicas que
+                      añaden valor a sus actividades, garantizando soporte técnico durante el uso de nuestros desarrollos
+                      y productos.
+                    </p>
+                  </BlurFade>
                 </div>
               </div>
             </div>
 
             {/* Right Image */}
-            <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden">
-                <img
-                  src="/images/agm2.jpg"
-                  alt="GearsMap team working with data visualization"
-                  className="w-full h-auto object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
+            <BlurFade delay={0.3}>
+              <div className="relative">
+                <div className="relative rounded-2xl overflow-hidden">
+                  <img
+                    src="/images/agm2.jpg"
+                    alt="GearsMap team working with data visualization"
+                    className="w-full h-auto object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
+                </div>
               </div>
-            </div>
+            </BlurFade>
           </div>
         </div>
       </section>
