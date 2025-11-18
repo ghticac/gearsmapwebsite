@@ -3,6 +3,8 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Zap, Brain, Map, BarChart, Globe2, Cog, Shield } from "lucide-react"
 import Globe from "@/components/ui/globe"
+import Features from "@/components/features"
+import ContactForm from "@/components/contact-form"
 
 export default function HomePage() {
   return (
@@ -43,28 +45,13 @@ export default function HomePage() {
                 </Button>
               </div>
 
-              {/* Stats */}
-              <div className="flex gap-8 pt-8 border-t border-border">
-                <div>
-                  <div className="text-2xl font-bold text-accent font-sans">500+</div>
-                  <div className="text-sm text-muted-foreground font-mono">Proyectos completados</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-accent font-sans">98%</div>
-                  <div className="text-sm text-muted-foreground font-mono">Satisfacción del cliente</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-accent font-sans">24/7</div>
-                  <div className="text-sm text-muted-foreground font-mono">Soporte técnico</div>
-                </div>
-              </div>
             </div>
 
             <div className="relative">
               <div className="relative w-full h-96 lg:h-[500px] flex items-center justify-center">
                 {/* Background glow effect */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-accent/20 to-accent/5 blur-3xl animate-pulse"></div>
+                  <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full bg-linear-to-br from-accent/20 to-accent/5 blur-3xl animate-pulse"></div>
                 </div>
 
                 {/* Magic UI Globe */}
@@ -159,7 +146,7 @@ export default function HomePage() {
                   alt="GearsMap team working with data visualization"
                   className="w-full h-auto object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-background/20 to-transparent"></div>
               </div>
             </div>
           </div>
@@ -173,7 +160,7 @@ export default function HomePage() {
             <div className="relative order-2 lg:order-1">
               <div className="relative rounded-2xl overflow-hidden">
                 <img src="/images/agm1.jpg" alt="GearsMap team collaboration" className="w-full h-auto object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-background/20 to-transparent"></div>
               </div>
             </div>
 
@@ -206,7 +193,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="portafolio" className="px-6 lg:px-12 py-20 lg:py-32 bg-card/30">
+      {/* Features Section */}
+      <Features />
+
+      <section id="portafolio" className="px-6 lg:px-12 py-20 lg:py-32">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
@@ -331,63 +321,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <form className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Tu Nombre *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    placeholder="Ingresa tu nombre"
-                    className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Tu Correo Electrónico *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    placeholder="Ingresa tu correo electrónico"
-                    className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                    Tu Teléfono
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    placeholder="Ingresa tu teléfono"
-                    className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    Tu Mensaje *
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={5}
-                    placeholder="Ingresa tu mensaje"
-                    className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent resize-none"
-                  ></textarea>
-                </div>
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-medium"
-                >
-                  Enviar
-                </Button>
-              </form>
+              <ContactForm />
             </div>
           </div>
         </div>
